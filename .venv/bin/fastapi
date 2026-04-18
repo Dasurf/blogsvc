@@ -1,4 +1,4 @@
-#!/home/dasurf/blogsvc/.venv/bin/python
+#!/home/dasurf/blogsvc/.venv/bin/python3.9
 # -*- coding: utf-8 -*-
 import re
 import sys
