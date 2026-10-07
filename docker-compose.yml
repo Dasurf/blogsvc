@@ -1,0 +1,6 @@
+services:
+  blogsvc:
+    build: .
+    container_name: blogsvc
+    ports:
+      - "8000:8000"
