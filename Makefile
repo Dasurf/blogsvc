@@ -1,21 +1,17 @@
-IMAGE=blogsvc
-CONTAINER=blogsvc_container
-
 run:
-	uvicorn app.main:app --reload
+	docker compose up
 
-docker_build:
-	docker build -t $(IMAGE)
+build:
+	docker compose build
 
-docker_up:
-	docker run --rm --name $(CONTAINER) -p 8000:8000 $(IMAGE)
+shell:
+	docker compose run --rm blogsvc bash
 
-docker_down:
-	docker stop $(CONTAINER)
-	docker rm $(CONTAINER)
+shelldb:
+	docker exec it blogdb psql -U postgres -d blogdb
 
 #open shell inside the container
-shell:
-	docker exec -it $(CONTAINER) /bin/bash
+down:
+	docker compose down
 
-.PHONY: run docker_build docker_up docker_down shell
+.PHONY: run build shell shelldb down
